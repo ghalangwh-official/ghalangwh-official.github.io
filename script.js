@@ -146,12 +146,14 @@ const quote = document.getElementById("quote");
 const clearBtn = document.getElementById("clear-btn");
 
 function renderTags() {
+  if (!tagRow) return;
   tagRow.innerHTML = tags
     .map((tag) => `<span class="tag"><strong>${tag.label}</strong> ${tag.value}</span>`)
     .join("");
 }
 
 function renderMetrics() {
+  if (!metricGrid) return;
   metricGrid.innerHTML = metrics
     .map(
       (metric) => `
@@ -165,6 +167,7 @@ function renderMetrics() {
 }
 
 function renderProjects() {
+  if (!projectGrid) return;
   projectGrid.innerHTML = projects
     .map(
       (project) => `
@@ -191,6 +194,7 @@ function renderProjects() {
 }
 
 function renderPrinciples() {
+  if (!principleList) return;
   principleList.innerHTML = principles
     .map(
       (principle) => `
@@ -204,15 +208,18 @@ function renderPrinciples() {
 }
 
 function setQuote() {
+  if (!quote) return;
   quote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 function writeLine(text = "") {
+  if (!output) return;
   output.textContent += `${text}\n`;
   output.parentElement.scrollTop = output.parentElement.scrollHeight;
 }
 
 function setIntro() {
+  if (!output) return;
   output.textContent = [
     "Ghalang / modern builder / GitHub Pages",
     "--------------------------------------",
@@ -291,27 +298,29 @@ updateClock();
 setInterval(updateClock, 1000);
 setInterval(setQuote, 20000);
 
-cmd.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    runCommand(cmd.value);
-    cmd.value = "";
-  }
-
-  if (event.key === "Tab") {
-    event.preventDefault();
-    const partial = normalizeCommand(cmd.value);
-    const matches = Object.keys(commandResponses).filter((command) => command.startsWith(partial));
-
-    if (matches.length === 1) {
-      cmd.value = matches[0];
+if (cmd) {
+  cmd.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      runCommand(cmd.value);
+      cmd.value = "";
     }
-  }
-});
+
+    if (event.key === "Tab") {
+      event.preventDefault();
+      const partial = normalizeCommand(cmd.value);
+      const matches = Object.keys(commandResponses).filter((command) => command.startsWith(partial));
+
+      if (matches.length === 1) {
+        cmd.value = matches[0];
+      }
+    }
+  });
+}
 
 document.querySelectorAll("[data-command]").forEach((button) => {
   button.addEventListener("click", () => {
     const command = button.getAttribute("data-command");
-    if (!command) {
+    if (!command || !cmd) {
       return;
     }
 
@@ -322,13 +331,17 @@ document.querySelectorAll("[data-command]").forEach((button) => {
   });
 });
 
-clearBtn.addEventListener("click", () => {
-  output.textContent = "";
-  cmd.focus();
-});
+if (clearBtn) {
+  clearBtn.addEventListener("click", () => {
+    if (output) {
+      output.textContent = "";
+    }
+    cmd?.focus();
+  });
+}
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    cmd.blur();
+    cmd?.blur();
   }
 });
