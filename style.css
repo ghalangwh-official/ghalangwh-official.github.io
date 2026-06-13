@@ -30,10 +30,9 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at top left, rgba(124, 247, 212, 0.12), transparent 28%),
-    radial-gradient(circle at top right, rgba(246, 193, 119, 0.09), transparent 24%),
-    radial-gradient(circle at bottom, rgba(141, 211, 255, 0.08), transparent 30%),
-    linear-gradient(180deg, #050814 0%, #070d1b 35%, #04070f 100%);
+    radial-gradient(circle at top left, rgba(124, 247, 212, 0.07), transparent 30%),
+    radial-gradient(circle at top right, rgba(141, 211, 255, 0.05), transparent 24%),
+    linear-gradient(180deg, #050814 0%, #060b16 40%, #04070f 100%);
   color: var(--text);
   font-family: "Space Grotesk", "Inter", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -60,7 +59,7 @@ input {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.22;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
@@ -71,37 +70,32 @@ input {
 .bg-orb {
   position: fixed;
   border-radius: 999px;
-  filter: blur(18px);
-  opacity: 0.8;
+  filter: blur(20px);
+  opacity: 0.42;
   pointer-events: none;
   z-index: 0;
   animation: drift 16s ease-in-out infinite;
 }
 
 .orb-a {
-  width: 26rem;
-  height: 26rem;
-  left: -9rem;
-  top: -7rem;
-  background: radial-gradient(circle, rgba(124, 247, 212, 0.18), transparent 65%);
+  width: 20rem;
+  height: 20rem;
+  left: -6rem;
+  top: -5rem;
+  background: radial-gradient(circle, rgba(124, 247, 212, 0.12), transparent 68%);
 }
 
 .orb-b {
-  width: 22rem;
-  height: 22rem;
-  right: -6rem;
-  top: 18rem;
+  width: 16rem;
+  height: 16rem;
+  right: -4rem;
+  top: 16rem;
   animation-delay: -6s;
-  background: radial-gradient(circle, rgba(246, 193, 119, 0.16), transparent 65%);
+  background: radial-gradient(circle, rgba(246, 193, 119, 0.1), transparent 68%);
 }
 
 .orb-c {
-  width: 18rem;
-  height: 18rem;
-  left: 28%;
-  bottom: -6rem;
-  animation-delay: -10s;
-  background: radial-gradient(circle, rgba(141, 211, 255, 0.12), transparent 70%);
+  display: none;
 }
 
 .page-shell {
@@ -120,7 +114,7 @@ input {
 }
 
 .hero {
-  padding: 24px;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
   background: linear-gradient(180deg, rgba(7, 12, 24, 0.84), rgba(9, 15, 30, 0.68));
@@ -146,7 +140,7 @@ input {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 34px;
+  margin-bottom: 28px;
 }
 
 .brand {
@@ -220,7 +214,7 @@ input {
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr);
-  gap: 24px;
+  gap: 20px;
   align-items: stretch;
 }
 
@@ -242,13 +236,13 @@ input {
 .section h2,
 .contact-strip h2 {
   margin: 0;
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  line-height: 1.04;
+  letter-spacing: -0.04em;
 }
 
 .hero h1 {
-  max-width: 11ch;
-  font-size: clamp(3rem, 7vw, 6.15rem);
+  max-width: 14ch;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
 }
 
 .lede,
@@ -261,14 +255,14 @@ input {
 
 .lede {
   max-width: 62ch;
-  margin: 20px 0 0;
+  margin: 18px 0 0;
 }
 
 .cta-row {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin: 28px 0 22px;
+  margin: 24px 0 18px;
 }
 
 .btn {
@@ -455,7 +449,7 @@ input {
 
 .section h2,
 .contact-strip h2 {
-  font-size: clamp(1.75rem, 3vw, 3rem);
+  font-size: clamp(1.65rem, 2.8vw, 2.7rem);
 }
 
 .section-copy {
@@ -474,6 +468,7 @@ input {
   position: relative;
   padding: 20px;
   overflow: hidden;
+  min-height: 220px;
 }
 
 .project-card::before {
@@ -636,7 +631,7 @@ input {
 
 #output {
   margin: 0 0 18px;
-  min-height: 280px;
+  min-height: 240px;
   white-space: pre-wrap;
   word-break: break-word;
   color: #d9e4ff;
@@ -719,7 +714,7 @@ input {
 
 .footer {
   margin-top: 16px;
-  padding: 16px 6px 0;
+  padding: 14px 6px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -799,7 +794,7 @@ input {
 
   .hero h1 {
     max-width: 100%;
-    font-size: clamp(2.6rem, 12vw, 4.2rem);
+    font-size: clamp(2.45rem, 11vw, 4rem);
   }
 
   .lede {
