@@ -3,105 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ghalang | Terminal Interface</title>
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="Ghalang's modern portfolio - Termux, automation, security, and practical open source systems." />
+  <title>Ghalang | Modern Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22><stop offset=%220%25%22 stop-color=%22%237cf7d4%22/><stop offset=%22100%25%22 stop-color=%22%23f6c177%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23060b18%22/><path d=%22M18 58h64M18 42h64M36 24l28 52M64 24L36 76%22 stroke=%22url(%23g)%22 stroke-width=%226%22 stroke-linecap=%22round%22/></svg>">
 </head>
 <body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+  <div class="bg-orb orb-c"></div>
 
-<!-- Matrix Rain Background -->
-<canvas id="matrix"></canvas>
+  <main class="page-shell">
+    <section class="hero">
+      <nav class="topbar" aria-label="Primary">
+        <div class="brand">
+          <span class="brand-mark">GH</span>
+          <div>
+            <p class="brand-name">Ghalang</p>
+            <p class="brand-sub">Android-first builder</p>
+          </div>
+        </div>
 
-<!-- Main Container -->
-<div class="container">
-  
-  <!-- Header -->
-  <header>
-    <div class="ascii-art">
- ██████╗ ██╗  ██╗ █████╗ ██╗      █████╗ ███╗   ██╗ ██████╗ 
-██╔════╝ ██║  ██║██╔══██╗██║     ██╔══██╗████╗  ██║██╔════╝ 
-██║  ███╗███████║███████║██║     ███████║██╔██╗ ██║██║  ███╗
-██║   ██║██╔══██║██╔══██║██║     ██╔══██║██║╚██╗██║██║   ██║
-╚██████╔╝██║  ██║██║  ██║███████╗██║  ██║██║ ╚████║╚██████╔╝
- ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
-    </div>
-    <p class="tagline">⚡ Notaris by Day | Hacker by Night ⚡</p>
-    <p class="subtitle">Bash • Termux • Linux • Automation • Security</p>
-  </header>
+        <div class="topbar-actions">
+          <a class="chip chip-link" href="https://github.com/ghalangwh-official" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="chip chip-link" href="mailto:penggaraphandal@gmail.com">Email</a>
+          <a class="chip chip-link" href="#projects">Projects</a>
+        </div>
+      </nav>
 
-  <!-- System Info -->
-  <div class="system-info">
-    <span class="status-badge online">⬤ ONLINE</span>
-    <span class="info-item">📍 Serpong, Indonesia</span>
-    <span class="info-item">🕒 <span id="clock"></span></span>
-    <span class="info-item">💻 Termux Android</span>
-  </div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modern portfolio / Termux / automation / security</p>
+          <h1>High-signal systems, shipped with a clean interface.</h1>
+          <p class="lede">
+            Notaris by day. Builder by night. I make practical tools, mobile-friendly workflows, and open source repos
+            that are easy to use, easy to maintain, and hard to break.
+          </p>
 
-  <!-- Terminal -->
-  <div id="terminal">
-    <div class="terminal-header">
-      <div class="terminal-buttons">
-        <span class="btn close"></span>
-        <span class="btn minimize"></span>
-        <span class="btn maximize"></span>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://github.com/ghalangwh-official" target="_blank" rel="noreferrer">Open profile</a>
+            <a class="btn btn-secondary" href="#console">Try console</a>
+          </div>
+
+          <div class="tag-row" id="tag-row" aria-label="Focus areas"></div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Profile summary">
+          <div class="panel-card glow-card">
+            <div class="panel-head">
+              <span class="status-dot"></span>
+              <span>Live status</span>
+            </div>
+
+            <p class="panel-title">Currently focused on:</p>
+            <p class="panel-copy">
+              practical automation, security-minded tooling, and polished GitHub projects that work well on Android.
+            </p>
+
+            <div class="metric-grid" id="metric-grid"></div>
+          </div>
+
+          <div class="panel-card compact-card">
+            <p class="kicker">Stack</p>
+            <p class="mono-list">Bash / Python / JavaScript / HTML / CSS</p>
+            <p class="mono-list">Git / Termux / Linux / GitHub Pages</p>
+          </div>
+        </aside>
       </div>
-      <div class="terminal-title">ghalang@termux: ~</div>
-    </div>
-    
-    <div class="terminal-body">
-      <pre id="output"></pre>
-      <div class="input-line">
-        <span class="prompt">god@ghalang:~$</span>
-        <input id="cmd" type="text" spellcheck="false" autocomplete="off" autofocus />
-        <span class="cursor">█</span>
-      </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- Quick Links -->
-  <div class="quick-links">
-    <a href="https://github.com/ghalangwh-official" target="_blank" class="link-card">
-      <div class="link-icon">📦</div>
-      <div class="link-text">
-        <div class="link-title">GitHub</div>
-        <div class="link-desc">Open Source Projects</div>
+    <section class="section" id="projects">
+      <div class="section-head">
+        <p class="kicker">Selected work</p>
+        <h2>Repos worth opening first.</h2>
+        <p class="section-copy">
+          A clean showcase of the public projects that best represent the work: automation, mobile tooling, and practical systems.
+        </p>
       </div>
-    </a>
-    
-    <a href="https://github.com/ghalangwh-official/jadwal-sholat" target="_blank" class="link-card">
-      <div class="link-icon">🕌</div>
-      <div class="link-text">
-        <div class="link-title">Jadwal Sholat</div>
-        <div class="link-desc">Prayer Time Scheduler</div>
-      </div>
-    </a>
-    
-    <a href="https://github.com/ghalangwh-official/crawler-shell" target="_blank" class="link-card">
-      <div class="link-icon">🔍</div>
-      <div class="link-text">
-        <div class="link-title">Crawler Shell</div>
-        <div class="link-desc">Security Web Crawler</div>
-      </div>
-    </a>
-    
-    <a href="https://github.com/ghalangwh-official/termux-wallpaper" target="_blank" class="link-card">
-      <div class="link-icon">🎨</div>
-      <div class="link-text">
-        <div class="link-title">Wallpaper AI</div>
-        <div class="link-desc">AI Wallpaper Generator</div>
-      </div>
-    </a>
-  </div>
+      <div class="project-grid" id="project-grid"></div>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>🐧 Built with Bash, Python & Coffee ☕</p>
-    <p class="quote" id="quote">"If you do it twice, script it."</p>
-  </footer>
+    <section class="section split-layout">
+      <article class="panel-card principle-card">
+        <div class="section-head compact">
+          <p class="kicker">Operating principles</p>
+          <h2>Built for low bug risk.</h2>
+        </div>
+        <div class="principle-list" id="principle-list"></div>
+      </article>
 
-</div>
+      <article class="panel-card console-card" id="console" aria-label="Interactive console">
+        <div class="console-top">
+          <div>
+            <p class="kicker">Terminal console</p>
+            <h2>Type `help`.</h2>
+          </div>
+          <button class="mini-btn" id="clear-btn" type="button">Clear</button>
+        </div>
 
-<script src="script.js"></script>
+        <div class="console-window">
+          <pre id="output" aria-live="polite"></pre>
+          <label class="input-line" for="cmd">
+            <span class="prompt">ghalang@termux:~$</span>
+            <input id="cmd" type="text" spellcheck="false" autocomplete="off" autocapitalize="none" autofocus />
+          </label>
+        </div>
+
+        <div class="quick-commands" aria-label="Suggested commands">
+          <button class="ghost-pill" type="button" data-command="help">help</button>
+          <button class="ghost-pill" type="button" data-command="projects">projects</button>
+          <button class="ghost-pill" type="button" data-command="stack">stack</button>
+          <button class="ghost-pill" type="button" data-command="contact">contact</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="section contact-strip">
+      <div>
+        <p class="kicker">Contact</p>
+        <h2>Open to collaboration on practical automation and clean tooling.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:penggaraphandal@gmail.com">penggaraphandal@gmail.com</a>
+        <a href="https://github.com/ghalangwh-official" target="_blank" rel="noreferrer">github.com/ghalangwh-official</a>
+        <span>Serpong, Indonesia</span>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Built for GitHub Pages, Termux, and the kind of projects that keep shipping.</p>
+      <p class="quote" id="quote">"If you do it twice, script it."</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
-<!-- Force rebuild Sat Jun 13 13:28:24 WIB 2026 -->
