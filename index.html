@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ghalang | Terminal Interface</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+
+<!-- Matrix Rain Background -->
+<canvas id="matrix"></canvas>
+
+<!-- Main Container -->
+<div class="container">
+  
+  <!-- Header -->
+  <header>
+    <div class="ascii-art">
+ ██████╗ ██╗  ██╗ █████╗ ██╗      █████╗ ███╗   ██╗ ██████╗ 
+██╔════╝ ██║  ██║██╔══██╗██║     ██╔══██╗████╗  ██║██╔════╝ 
+██║  ███╗███████║███████║██║     ███████║██╔██╗ ██║██║  ███╗
+██║   ██║██╔══██║██╔══██║██║     ██╔══██║██║╚██╗██║██║   ██║
+╚██████╔╝██║  ██║██║  ██║███████╗██║  ██║██║ ╚████║╚██████╔╝
+ ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ 
+    </div>
+    <p class="tagline">⚡ Notaris by Day | Hacker by Night ⚡</p>
+    <p class="subtitle">Bash • Termux • Linux • Automation • Security</p>
+  </header>
+
+  <!-- System Info -->
+  <div class="system-info">
+    <span class="status-badge online">⬤ ONLINE</span>
+    <span class="info-item">📍 Serpong, Indonesia</span>
+    <span class="info-item">🕒 <span id="clock"></span></span>
+    <span class="info-item">💻 Termux Android</span>
+  </div>
+
+  <!-- Terminal -->
+  <div id="terminal">
+    <div class="terminal-header">
+      <div class="terminal-buttons">
+        <span class="btn close"></span>
+        <span class="btn minimize"></span>
+        <span class="btn maximize"></span>
+      </div>
+      <div class="terminal-title">ghalang@termux: ~</div>
+    </div>
+    
+    <div class="terminal-body">
+      <pre id="output"></pre>
+      <div class="input-line">
+        <span class="prompt">god@ghalang:~$</span>
+        <input id="cmd" type="text" spellcheck="false" autocomplete="off" autofocus />
+        <span class="cursor">█</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Links -->
+  <div class="quick-links">
+    <a href="https://github.com/ghalangwh-official" target="_blank" class="link-card">
+      <div class="link-icon">📦</div>
+      <div class="link-text">
+        <div class="link-title">GitHub</div>
+        <div class="link-desc">Open Source Projects</div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/ghalangwh-official/jadwal-sholat" target="_blank" class="link-card">
+      <div class="link-icon">🕌</div>
+      <div class="link-text">
+        <div class="link-title">Jadwal Sholat</div>
+        <div class="link-desc">Prayer Time Scheduler</div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/ghalangwh-official/crawler-shell" target="_blank" class="link-card">
+      <div class="link-icon">🔍</div>
+      <div class="link-text">
+        <div class="link-title">Crawler Shell</div>
+        <div class="link-desc">Security Web Crawler</div>
+      </div>
+    </a>
+    
+    <a href="https://github.com/ghalangwh-official/termux-wallpaper" target="_blank" class="link-card">
+      <div class="link-icon">🎨</div>
+      <div class="link-text">
+        <div class="link-title">Wallpaper AI</div>
+        <div class="link-desc">AI Wallpaper Generator</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>🐧 Built with Bash, Python & Coffee ☕</p>
+    <p class="quote" id="quote">"If you do it twice, script it."</p>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<!-- Force rebuild Sat Jun 13 13:28:24 WIB 2026 -->
