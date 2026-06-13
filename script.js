@@ -1,57 +1,58 @@
 const tags = [
-  { label: "Focus", value: "Automation" },
-  { label: "Surface", value: "Termux + Web" },
-  { label: "Stack", value: "Bash / Python / JS" },
-  { label: "Mode", value: "Low bug / production-minded" },
+  { label: "Focus", value: "Production systems" },
+  { label: "Surface", value: "Go + Docker + Web" },
+  { label: "Stack", value: "Go / Bash / Python / JS" },
+  { label: "Mode", value: "Observable / Security-first" },
 ];
 
 const metrics = [
   {
-    value: "Open source",
-    label: "Shipping public repos with practical utility instead of filler projects.",
+    value: "Production-ready",
+    label: "Shipping observable, well-tested systems with proper error handling and security.",
   },
   {
-    value: "Android-first",
-    label: "Built to work well from Termux and a phone-sized workflow.",
+    value: "Go + Docker",
+    label: "Modern backend stack — api-gateway built with Go 1.21, PostgreSQL, Redis, Docker.",
   },
   {
-    value: "Security-aware",
-    label: "Prefer explicit flows, input validation, and safe defaults.",
+    value: "Security-first",
+    label: "Input validation, bcrypt hashing, rate limiting, and comprehensive security testing.",
   },
   {
-    value: "GitHub Pages",
-    label: "Static, fast, low maintenance, and easy to keep alive.",
+    value: "Observable",
+    label: "Prometheus metrics, Grafana dashboards, structured logs, and health checks.",
   },
 ];
 
 const projects = [
   {
+    name: "API Gateway",
+    status: "Production-ready",
+    description: "Self-hosted API proxy with rate limiting, quota management, caching, and full observability. Built with Go, PostgreSQL, Redis.",
+    tags: ["Go", "PostgreSQL", "Redis", "Docker"],
+    url: "https://github.com/ghalangwh-official/api-gateway",
+    featured: true
+  },
+  {
     name: "Jadwal Sholat",
     status: "Public repo",
-    description: "Prayer time scheduler with audio-driven workflow and practical Termux-friendly automation.",
+    description: "Prayer time scheduler with audio-driven workflow, error handling, and trap cleanup for production reliability.",
     tags: ["Bash", "jq", "mpv", "Automation"],
     url: "https://github.com/ghalangwh-official/jadwal-sholat",
   },
   {
     name: "Crawler Shell",
-    status: "Public repo",
-    description: "Security-oriented crawler focused on usable workflows, clear controls, and lower-maintenance scripting.",
-    tags: ["Security", "Shell", "Crawling", "Tools"],
+    status: "Security-hardened",
+    description: "Web crawler with critical input validation, command injection prevention, and comprehensive security test suite.",
+    tags: ["Security", "Bash", "Testing", "Hardening"],
     url: "https://github.com/ghalangwh-official/crawler-shell",
   },
   {
     name: "Termux Wallpaper",
-    status: "Public repo",
-    description: "Android wallpaper tooling built around fast iteration, automation, and simple end-user flow.",
-    tags: ["Android", "Automation", "Termux", "UX"],
+    status: "Refactored",
+    description: "AI wallpaper generator with proper error handling, retry logic, automatic cleanup, and history tracking.",
+    tags: ["Bash", "API", "Error Handling", "UX"],
     url: "https://github.com/ghalangwh-official/termux-wallpaper",
-  },
-  {
-    name: "ACA Civilization OS",
-    status: "Public repo",
-    description: "A broader systems repo that shows real architecture work, services, and orchestration thinking.",
-    tags: ["Systems", "Architecture", "Services", "Platform"],
-    url: "https://github.com/ghalangwh-official/aca-civilization-os",
   },
 ];
 
@@ -84,15 +85,21 @@ const quotes = [
 const commandResponses = {
   help: `Available commands:
 
-help      show this help
-about     short bio
-projects  list featured repos
-stack     show the core stack
-contact   show contact links
-signal    show current focus
-quote     rotate a short quote
-clear     clear the console
-open <x>  open a repo (jadwal, crawler, wallpaper, academy, profile)`,
+help          show this help
+about         short bio
+projects      list featured repos
+stack         show the core stack
+contact       show contact links
+signal        show current focus
+quote         rotate a short quote
+clear         clear the console
+open <repo>   open a repo
+
+Examples:
+  open api-gateway
+  open jadwal
+  open crawler
+  open wallpaper`,
   about: `Ghalang
 
 Notaris by day.
@@ -100,20 +107,25 @@ Builder by night.
 I ship practical tools, mobile-friendly automation, and repos that are meant to stay alive.`,
   projects: `Featured repos:
 
-1. Jadwal Sholat
-2. Crawler Shell
-3. Termux Wallpaper
-4. ACA Civilization OS
+1. API Gateway       → Production-grade API proxy (Go, PostgreSQL, Redis)
+2. Jadwal Sholat     → Prayer scheduler with error handling (Bash)
+3. Crawler Shell     → Security-hardened web crawler (Bash, Testing)
+4. Termux Wallpaper  → AI wallpaper generator (Bash, API)
 
-Use: open jadwal | open crawler | open wallpaper | open academy | open profile`,
+Type: open <name> to visit (e.g., open api-gateway)`,
   stack: `Core stack:
 
-Bash
-Python
-JavaScript
-HTML / CSS
-Git / GitHub
-Termux / Linux`,
+Go 1.21+         (api-gateway, systems programming)
+Bash             (automation, CLI tools)
+Python           (scripting, Flask apps)
+JavaScript       (web UI, interactive demos)
+HTML / CSS       (modern design, GitHub Pages)
+PostgreSQL       (transactional data, quotas)
+Redis            (rate limiting, caching)
+Docker           (containerization, deployment)
+Prometheus       (metrics, observability)
+Grafana          (dashboards, visualization)
+Git / GitHub     (version control, CI/CD)`,
   contact: `Contact:
 
 Email: penggaraphandal@gmail.com
@@ -121,10 +133,14 @@ GitHub: github.com/ghalangwh-official
 Site: ghalangwh-official.github.io`,
   signal: `Current signal:
 
-- keep the repo fast
-- keep the UI readable
-- keep the surface modern
-- keep the behavior predictable`,
+- Production-ready code (api-gateway live)
+- Security-first approach (input validation, testing)
+- Observable systems (Prometheus, Grafana, structured logs)
+- Docker-native deployment
+- Comprehensive documentation
+
+Recent: 3 repos upgraded (2300+ lines hardened)
+Next: Test coverage + Railway deploy`,
   quote: () => quotes[Math.floor(Math.random() * quotes.length)],
 };
 
